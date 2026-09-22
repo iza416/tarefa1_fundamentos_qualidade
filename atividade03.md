@@ -52,8 +52,8 @@ Verificar se o fluxo de fazer pedido valida adequadamente a autenticação do cl
 | Critério | Definição da equipe |
 | :--- | :--- |
 | **Entrada** | Aplicação web publicada e acessível, cardápios de restaurantes carregando com itens e preços válidos e conta de usuário disponível para autenticação. |
-| **Saída** | Todos os três casos de teste planejados (CT01 a CT03) executados e documentados com status (Passou/Falhou) e eventuais evidências de bugs. |
-| **Suspensão** | Aplicação fora do ar (erros 5xx) ou indisponibilidade total do botão/função de adicionar itens ao carrinho. |
+| **Saída** | Todos os três casos de teste planejados, executados e documentados e eventuais evidências de bugs. |
+| **Suspensão** | Aplicação fora do ar ou indisponibilidade de  itens ao carrinho. |
 
 ---
 
