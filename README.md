@@ -23,3 +23,4 @@ Repositório da equipe para o desenvolvimento e registro das atividades da Unida
 Acesse os relatórios e entregas desenvolvidas:
 
 - [x] [Atividade 01](https://github.com/iza416/tarefa1_fundamentos_qualidade/blob/main/atividade01.md)
+- [x] [Atividade 02] (https://github.com/iza416/tarefa1_fundamentos_qualidade/blob/main/atividade2.md)
