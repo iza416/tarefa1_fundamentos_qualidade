@@ -37,7 +37,7 @@ Verificar se o fluxo de fazer pedido valida adequadamente a autenticação do cl
 | :--- | :--- | :--- |
 | **Níveis de teste** | Teste de Sistema | Avaliar a jornada ponta a ponta pela interface (adicionar ao carrinho, preencher dados e confirmar pedido). |
 | **Tipos de teste** | Funcional | Assegurar o correto cumprimento das regras de negócio do processo de checkout. |
-| **Perspectiva** | Caixa-preta | Foco nas entradas fornecidas pelo usuário e nos resultados observáveis na tela, sem acesso ao código-fonte. |
+| **Perspectiva** | Caixa-preta | Foco nas entradas fornecidas pelo usuário e nos resultados observáveis na tela. |
 | **Técnicas de teste** | Tabela de Decisão | O fechamento do pedido depende de múltiplas condições lógicas combinadas (autenticação, carrinho, endereço e pagamento). |
 
 ### 2.4 Ambiente e responsabilidades
@@ -62,8 +62,8 @@ Verificar se o fluxo de fazer pedido valida adequadamente a autenticação do cl
 ### 3.1 Análise dos riscos
 | ID | Integrante | Funcionalidade | Risco | Consequência | Probabilidade | Impacto | Prioridade | Justificativa |
 | :--- | :--- | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
-| **R01** | Izadora | Fazer pedido | O cliente pedir o prato sem ter ou informar um endereço válido. | O cliente pode ter a entrega atrasada até o restaurante conseguir contato para confirmar a localização, gerando insatisfação e atrasos na cozinha. | Média | Alto | **Alta** | Este problema quebra o fluxo operacional da loja, prejudica a logística de entrega e gera inconsistência no banco de dados. |
-| **R02** | Izadora | Fazer pedido | O sistema permitir o envio de pedido com o carrinho vazio. | O restaurante recebe chamados zerados, ocupando filas de processamento e gerando cancelamentos desnecessários. | Baixa | Médio | **Média** | O impacto é moderado na operação, mas a regra deve ser travada no sistema para evitar desperdício de recursos e falhas de processo. |
+| **R01** | Izadora | Fazer pedido | O cliente pedir o prato sem ter ou informar um endereço válido. | O cliente pode ter a entrega atrasada até o restaurante conseguir contato para confirmar a localização, gerando insatisfação e atrasos na cozinha. | Média | Alto | **Alta** | Este problema quebra o fluxo operacional da loja, prejudica a logística de entrega e gera problemas/dúvidas no banco de dados. |
+| **R02** | Izadora | Fazer pedido | O sistema permitir o envio de pedido com o carrinho vazio. | O restaurante recebe chamados zerados, ocupando filas de processamento e gerando cancelamentos desnecessários. | Baixa | Médio | **Média** | O impacto é moderado, mas a regra deve ser travada no sistema para evitar desperdício de alimentos e futuras falhas.. |
 
 ### 3.2 Aplicação da técnica
 
@@ -73,7 +73,7 @@ Verificar se o fluxo de fazer pedido valida adequadamente a autenticação do cl
 - **Técnica escolhida:** Tabela de Decisão  
 
 #### Por que a técnica foi escolhida
-O fluxo de finalização de um pedido depende de uma combinação lógica de pré-requisitos: o carrinho deve ter produtos válidos, o usuário precisa fornecer um endereço de entrega, deve escolher uma forma de pagamento e estar autenticado. A Tabela de Decisão é a técnica mais eficaz para mapear todas as combinações de entradas e assegurar que as ações sejam acionadas sem lacunas.
+O fluxo de finalização de um pedido depende de uma combinação de pré-requisitos: o carrinho deve ter produtos válidos, o usuário precisa fornecer um endereço de entrega, deve escolher uma forma de pagamento e estar autenticado. A Tabela de Decisão é a técnica mais eficaz para mapear todas as combinações de entradas e garantir que as ações sejam acionadas sem problemas.
 
 **Regra de negócio:** O pedido deve ir para o restaurante quando o cliente estiver autenticado, selecionar o prato que quer e informar endereço e forma de pagamento.
 
