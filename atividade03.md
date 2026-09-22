@@ -82,15 +82,15 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
 | Regra | Usuário autenticado | Carrinho possui itens válidos | Endereço informado | Forma de pagamento selecionado | Resultado esperado |
 | :---: | :---: | :---: | :---: | :---: | :--- |
 | **1** | Sim | Sim | Sim | Sim | Pedido enviado ao restaurante[cite: 1] |
-| **2** | Sim | Sim | Não | Sim | O sistema deve informar que o cliente precisa informar o endereço[cite: 1] |
-| **3** | Sim | Sim | Sim | Não | O sistema deve informar que o pagamento deve ser informado[cite: 1] |
-| **4** | Sim | Não | Sim | Não | O sistema deve informar que o cliente precisa selecionar o prato que deseja[cite: 1] |
-| **5** | Não | Não | Não | Não | Solicitar autenticação e não realizar o pedido[cite: 1] |
+| **2** | Sim | Sim | Não | Sim | O sistema deve informar que o cliente precisa informar o endereço |
+| **3** | Sim | Sim | Sim | Não | O sistema deve informar que o pagamento deve ser informado |
+| **4** | Sim | Não | Sim | Não | O sistema deve informar que o cliente precisa selecionar o prato que deseja |
+| **5** | Não | Não | Não | Não | Solicitar autenticação e não realizar o pedido |
 
 #### Casos derivados
-- **CT01:** Pedido enviado ao restaurante com todos os dados preenchidos (derivado da Regra 1).
-- **CT02:** Bloqueio de finalização de pedido sem endereço informado (derivado da Regra 2 e cobrindo o risco R01).
-- **CT03:** Bloqueio de finalização com carrinho vazio / sem prato selecionado (derivado da Regra 4 e cobrindo o risco R02).
+- **CT01:** Pedido enviado ao restaurante com todos os dados preenchidos.
+- **CT02:** Bloqueio de finalização de pedido sem endereço informado.
+- **CT03:** Bloqueio de finalização com carrinho vazio / sem prato selecionado.
 
 ---
 
@@ -101,7 +101,7 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
 #### CT01: Pedido enviado ao restaurante com todos os dados preenchidos
 - **Integrante responsável:** Izadora Calvetti Souza  
 - **Funcionalidade:** Fazer pedido  
-- **Risco ou requisito relacionado:** Requisito de finalização de pedido com sucesso (Regra 1 da Tabela de Decisão)  
+- **Risco ou requisito relacionado:** Requisito de finalização de pedido com sucesso  
 - **Técnica utilizada:** Tabela de Decisão  
 - **Pré-condição:** Usuário previamente autenticado no LocalEats e com restaurante acessível na plataforma.  
 - **Dados de entrada:**  
@@ -124,7 +124,7 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
 #### CT02: Bloqueio de finalização de pedido sem endereço informado
 - **Integrante responsável:** Izadora Calvetti Souza  
 - **Funcionalidade:** Fazer pedido  
-- **Risco ou requisito relacionado:** R01 (Cliente pedir o prato sem ter ou informar um endereço válido) / Regra 2 da Tabela de Decisão  
+- **Risco ou requisito relacionado:** R01 Cliente pedir o prato sem ter ou informar um endereço válido 
 - **Técnica utilizada:** Tabela de Decisão  
 - **Pré-condição:** Usuário autenticado com prato previamente adicionado ao carrinho de compras.  
 - **Dados de entrada:**  
@@ -132,10 +132,10 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
   - Endereço: *vazio / não informado*  
   - Forma de pagamento: "Cartão de Crédito"  
 - **Passos:**  
-  1. No checkout, certificar-se de que o usuário está logado e há prato no carrinho.  
+  1. Certificar-se de que o usuário está logado e há prato no carrinho.  
   2. Deixar o campo de endereço de entrega em branco.  
-  3. Selecionar a forma de pagamento "Cartão de Crédito".  
-  4. Clicar no botão "Confirmar Pedido".  
+  3. Selecionar a forma de pagamento Cartão de Crédito.  
+  4. Clicar no botão Confirmar Pedido.  
 - **Resultado esperado:** O sistema impede o envio do pedido e exibe mensagem de alerta informando que o cliente precisa preencher o endereço de entrega para prosseguir.
 
 ---
@@ -143,7 +143,7 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
 #### CT03: Bloqueio de finalização com carrinho vazio / sem prato selecionado
 - **Integrante responsável:** Izadora Calvetti Souza  
 - **Funcionalidade:** Fazer pedido  
-- **Risco ou requisito relacionado:** R02 (Sistema permitir o envio de pedido com o carrinho vazio) / Regra 4 da Tabela de Decisão  
+- **Risco ou requisito relacionado:** R02 Sistema permitir o envio de pedido com o carrinho vazio   
 - **Técnica utilizada:** Tabela de Decisão  
 - **Pré-condição:** Usuário previamente autenticado com o carrinho de compras zerado.  
 - **Dados de entrada:**  
@@ -152,9 +152,9 @@ O fluxo de finalização de um pedido depende de uma combinação de pré-requis
   - Forma de pagamento: *não selecionada*  
 - **Passos:**  
   1. Efetuar login na aplicação LocalEats.  
-  2. Clicar diretamente no ícone do carrinho de compras sem escolher nenhum prato.  
-  3. Preencher o campo de endereço ou tentar clicar no botão de finalizar pedido.  
-- **Resultado esperado:** O sistema impede a finalização, sinalizando que o carrinho está vazio com aviso de que o cliente precisa selecionar ao menos um prato antes de concluir.
+  2. Clicar em um restaurante.  
+  3. Tentar ir para o carrinho vazio ou completar a compra
+- **Resultado esperado:** O sistema impede, sinalizando que o carrinho está vazio com aviso de que o cliente precisa selecionar ao menos um prato antes de concluir.
 
 ---
 
